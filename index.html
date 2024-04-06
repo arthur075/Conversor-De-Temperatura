@@ -6,65 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor de temperatura</title>
 
-
     <style>
         .centralizada {
-            width: 1000px;
-            /* Define a largura da div como 100% */
-            max-width: 1500px;
-            /* Define uma largura máxima para a div */
+            width: 90%;
+            /* Use uma largura relativa para a container */
+            max-width: 1200px;
+            /* Defina uma largura máxima para o container */
             margin: 0 auto;
-            /* Centraliza a div horizontalmente */
+            /* Centralize o container horizontalmente */
             padding: 20px;
-            /* Adiciona espaçamento interno */
-            background-color: grey;
-            /* Cor de fundo */
-            border: 1px solid #ccc;
-            /* Borda */
             box-sizing: border-box;
-            /* Garante que a largura total inclua padding e borda */
-            height: 500px;
-            /* Define uma altura específica para a div */
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 20px;
         }
 
-        .titulo {
+        .meuTexto {
+            width: 100%;
+            /* Defina a largura do elemento como 100% */
+            max-width: 600px;
+            /* Defina uma largura máxima para o elemento */
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 20px;
             position: absolute;
-            top: 19%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
 
         body {
-            background-color: #000080;
-            color: white;
-        }
-
-        .textoEscolha1 {
-            position: absolute;
-            top: 26%;
-            left: 32%;
-            transform: translate(-50%, -50%);
-        }
-
-        .textoEscolha2 {
-            position: absolute;
-            top: 26%;
-            left: 45%;
-            transform: translate(-50%, -50%);
-        }
-
-        .textoOutput {
-
-            position: absolute;
-            top: 26%;
-            left: 58%;
-            transform: translate(-50%, -50%);
-
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(45deg, cyan, yellow);
         }
     </style>
 
@@ -73,14 +46,12 @@
 
 <body>
 
-    <div class="centralizada"></div>
-    <h1 class="titulo">Conversor de temperatura</h1>
-    <h4 class="textoEscolha1">Digite o valor em:</h4>
-    <h4 class="textoEscolha2">Para trasnformar em:</h4>
-    <h4 class="textoOutput">Resultado: </h4>
+    <div class="centralizada">
+        <div class="meuTexto">
 
+            <h1>Conversor de temperatura</h1>
 
-
+    </div>
 
 
 </body>
