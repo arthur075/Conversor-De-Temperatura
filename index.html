@@ -9,16 +9,27 @@
 
     <style>
         .centralizada {
+            width: 1000px;
+            /* Define a largura da div como 100% */
+            max-width: 1500px;
+            /* Define uma largura máxima para a div */
+            margin: 0 auto;
+            /* Centraliza a div horizontalmente */
+            padding: 20px;
+            /* Adiciona espaçamento interno */
+            background-color: grey;
+            /* Cor de fundo */
+            border: 1px solid #ccc;
+            /* Borda */
+            box-sizing: border-box;
+            /* Garante que a largura total inclua padding e borda */
+            height: 500px;
+            /* Define uma altura específica para a div */
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 900px;
-            height: 500px;
             transform: translate(-50%, -50%);
-            background-color: grey;
             border-radius: 20px;
-
-
         }
 
         .titulo {
@@ -41,11 +52,12 @@
         }
 
         .textoEscolha2 {
-                position: absolute;
-                top: 26%;
-                left: 45%;
-                transform: translate(-50%, -50%);
+            position: absolute;
+            top: 26%;
+            left: 45%;
+            transform: translate(-50%, -50%);
         }
+
         .textoOutput {
 
             position: absolute;
@@ -65,7 +77,7 @@
     <h1 class="titulo">Conversor de temperatura</h1>
     <h4 class="textoEscolha1">Digite o valor em:</h4>
     <h4 class="textoEscolha2">Para trasnformar em:</h4>
-    <h4 class="textoOutput">Resultado:  </h4>
+    <h4 class="textoOutput">Resultado: </h4>
 
 
 
