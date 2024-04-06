@@ -8,36 +8,35 @@
 
     <style>
         .centralizada {
-            width: 90%;
-            /* Use uma largura relativa para a container */
-            max-width: 1200px;
-            /* Defina uma largura máxima para o container */
-            margin: 0 auto;
-            /* Centralize o container horizontalmente */
-            padding: 20px;
-            box-sizing: border-box;
+            width: 100%;
+            height: 100vh; /* Define a altura da div como 100% da altura da viewport */
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            background-image: linear-gradient(45deg, cyan, yellow);
+            
         }
 
         .meuTexto {
-            width: 100%;
-            /* Defina a largura do elemento como 100% */
-            max-width: 600px;
-            /* Defina uma largura máxima para o elemento */
-            margin-bottom: 20px;
-            padding: 10px;
+            width: 30%; /* Largura da div */
+            height: 50%; /* Altura da div */
+            padding: 20px;
             background-color: #f0f0f0;
             border: 1px solid #ccc;
-            box-sizing: border-box;
             border-radius: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: flex-start; /* Alinha ao topo */
+            
+
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-image: linear-gradient(45deg, cyan, yellow);
+        }
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
         }
     </style>
 
