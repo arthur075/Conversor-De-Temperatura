@@ -7,11 +7,16 @@
     <title>Document</title>
 
     <style>
+        li {
+            list-style: none;
+        }
+
         #container {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
+            align-items: start;
+            /* Alterado para centralizar os itens horizontalmente */
             position: absolute;
             top: 50%;
             left: 50%;
@@ -22,7 +27,6 @@
             flex-wrap: wrap;
             background-color: white;
             border-radius: 20px;
-
         }
 
         #container h1 {
@@ -30,18 +34,130 @@
             top: 5%;
             left: 50%;
             transform: translate(-50%, -50%);
-
         }
 
-        #container h3 {
-            margin: 20px/*quanto mais, mais abaixa a div inferior*/ 40px /*quanto mais, mais sobe a div inferior*/
-             80px/*quanto mais mais sobe a div superior*/ 10px/*quanto mais, mais as duas divs vao para a direita*/;
-            
+        select {
+            width: 40%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 20px;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-image: linear-gradient(45deg, cyan, yellow);
+        }
+
+        input[type="number"] {
+            width: 25%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 20px;
+            position: absolute;
+            top: 28%;
+            left: 14%;
+            transform: translate(-50%, -50%);
+        }
+
+        label {
+            width: 25%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 20px;
+            position: absolute;
+            top: 22%;
+            left: 14%;
+            transform: translate(-50%, -50%);
+        }
+
+        .de {
+            /*O de ele muda o texto "De:"*/
+
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 20px;
+            position: absolute;
+            top: 45%;
+            left: 14%;
+            transform: translate(-50%, -50%);
+        }
+
+        #fromUnit {
+            /*o fromUnit modifica o primeiro bloco de escolhas*/
+            width: 15%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 20px;
+            position: absolute;
+            top: 45%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+        }
+
+        #toUnit {
+            /*o toUnit modifica o segundo bloco de descolhas */
+            width: 15%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 20px;
+            position: absolute;
+            top: 60%;
+            left: 16%;
+            transform: translate(-50%, -50%);
+        }
+
+        #para {
+            width: 25%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 20px;
+            position: absolute;
+            top: 60%;
+            left: 14%;
+            transform: translate(-50%, -50%);
+        }
+
+        .converter {
+            position: relative;
+            top: 40%;
+            left: 13%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(21, 194, 21);
+            border-radius: 15px;
+            color: white;
+            width: 22%;
+            height: 10%;
+        }
+
+        .converter:hover {
+            background-color: green;
+        }
+
+        #result {
+            position: relative;
+            top: -20%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+        }
+
+        #explanation {
+            position: relative;
+            top: -15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #explanation {
+            position: relative;
+            top: -20%;
+            left: 60%;
+            transform: tras;
         }
     </style>
 
@@ -53,12 +169,129 @@
 
     <div id="container">
         <h1>conversor de temperatura</h1>
-        <h3>Digite o valor em:</h3>
-        <h3>Para trasnformar em:</h3>
+        <li>
+            <label for="tempInput">Insira a temperatura: </label>
+            <input type="number" id="tempInput" placeholder="Digite a temperatura">
+            <label class="de" for="fromUnit">De:</label>
+            <select id="fromUnit">
+                <option value="celsius">Celsius</option>
+                <option value="kelvin">Kelvin</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="reaumur">Réaumur</option>
+                <option value="rankine">Rankine</option>
+            </select>
 
+            <label class="para" id="para" for="toUnit">Para:</label>
+        </li>
+        <select id="toUnit" class="toUnit">
+            <option value="celsius">Celsius</option>
+            <option value="kelvin">Kelvin</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="reaumur">Réaumur</option>
+            <option value="rankine">Rankine</option>
+        </select>
+        <button class="converter" onclick="convertTemperature()">Converter</button>
+
+        <p id="result"></p>
+        <p id="explanation"></p>
     </div>
 
+    <script>
+        function convertTemperature() {
+            var tempInput = parseFloat(document.getElementById("tempInput").value);
+            var fromUnit = document.getElementById("fromUnit").value;
+            var toUnit = document.getElementById("toUnit").value;
+            var result;
+            var explanation = "";
 
+            if (fromUnit === "celsius") {
+                if (toUnit === "kelvin") {
+                    result = tempInput + 273.15;
+                    explanation = "Para transformar de Celsius para Kelvin, adicionamos 273.15";
+                } else if (toUnit === "fahrenheit") {
+                    result = (tempInput * 9 / 5) + 32;
+                    explanation = "Para transformar de Celsius para Fahrenheit, multiplicamos por 9/5 e adicionamos 32.";
+                } else if (toUnit === "reaumur") {
+                    result = tempInput * 4 / 5;
+                    explanation = "Para transformar de Celsius para Réaumur, multiplicamos por 4/5.";
+                } else if (toUnit === "rankine") {
+                    result = (tempInput + 273.15) * 9 / 5;
+                    explanation = "Para transformar de Celsius para Rankine, adicionamos 273.15 e multiplicamos por 9/5.";
+                } else {
+                    result = tempInput;
+                }
+            } else if (fromUnit === "kelvin") {
+                // Conversões a partir de Kelvin
+                if (toUnit === "celsius") {
+                    result = tempInput - 273.15;
+                    explanation = "Para transformar de Kelvin para Celsius, subtraímos 273.15.";
+                } else if (toUnit === "fahrenheit") {
+                    result = (tempInput - 273.15) * 9 / 5 + 32;
+                    explanation = "Para transformar de Kelvin para Fahrenheit, subtraímos 273.15, multiplicamos por 9/5 e adicionamos 32.";
+                } else if (toUnit === "reaumur") {
+                    result = (tempInput - 273.15) * 4 / 5;
+                    explanation = "Para transformar de Kelvin para Réaumur, subtraímos 273.15 e multiplicamos por 4/5.";
+                } else if (toUnit === "rankine") {
+                    result = tempInput * 9 / 5;
+                    explanation = "Para transformar de Kelvin para Rankine, multiplicamos por 9/5.";
+                } else {
+                    result = tempInput;
+                }
+            } else if (fromUnit === "fahrenheit") {
+                // Conversões a partir de Fahrenheit
+                if (toUnit === "celsius") {
+                    result = (tempInput - 32) * 5 / 9;
+                    explanation = "Para transformar de Fahrenheit para Celsius, subtraímos 32 e multiplicamos por 5/9.";
+                } else if (toUnit === "kelvin") {
+                    result = (tempInput - 32) * 5 / 9 + 273.15;
+                    explanation = "Para transformar de Fahrenheit para Kelvin, subtraímos 32, multiplicamos por 5/9 e adicionamos 273.15.";
+                } else if (toUnit === "reaumur") {
+                    result = (tempInput - 32) * 4 / 9;
+                    explanation = "Para transformar de Fahrenheit para Réaumur, subtraímos 32 e multiplicamos por 4/9.";
+                } else if (toUnit === "rankine") {
+                    result = tempInput + 459.67;
+                    explanation = "Para transformar de Fahrenheit para Rankine, adicionamos 459.67.";
+                } else {
+                    result = tempInput;
+                }
+            } else if (fromUnit === "reaumur") {
+                // Conversões a partir de Réaumur
+                if (toUnit === "celsius") {
+                    result = tempInput * 5 / 4;
+                    explanation = "Para transformar de Réaumur para Celsius, multiplicamos por 5/4.";
+                } else if (toUnit === "kelvin") {
+                    result = tempInput * 5 / 4 + 273.15;
+                    explanation = "Para transformar de Réaumur para Kelvin, multiplicamos por 5/4 e adicionamos 273.15.";
+                } else if (toUnit === "fahrenheit") {
+                    result = tempInput * 9 / 4 + 32;
+                    explanation = "Para transformar de Réaumur para Fahrenheit, multiplicamos por 9/4 e adicionamos 32.";
+                } else if (toUnit === "rankine") {
+                    result = tempInput * 9 / 4 + 491.67;
+                    explanation = "Para transformar de Réaumur para Rankine, multiplicamos por 9/4 e adicionamos 491.67.";
+                } else {
+                    result = tempInput;
+                }
+            } else if (fromUnit === "rankine") {
+                // Conversões a partir de Rankine
+                if (toUnit === "celsius") {
+                    result = (tempInput - 491.67) * 5 / 9;
+                    explanation = "Para transformar de Rankine para Celsius, subtraímos 491.67 e multiplicamos por 5/9.";
+                } else if (toUnit === "kelvin") {
+                    result = tempInput * 5 / 9;
+                    explanation = "Para transformar de Rankine para Kelvin, multiplicamos por 5/9.";
+                } else if (toUnit === "fahrenheit") {
+                    result = tempInput - 459.67;
+                    explanation = "Para transformar de Rankine para Fahrenheit, subtraímos 459.67.";
+                } else if (toUnit === "reaumur") {
+                    result = (tempInput - 491.67) * 4 / 9;
+                    explanation = "Para transformar de Rankine para Réaumur, subtraímos 491.67 e multiplicamos por 4/9.";
+                } else {
+                    result = tempInput;
+                }
+            }
+
+            document.getElementById("result").innerHTML = "Resultado: " + result.toFixed(2) + " " + toUnit;
+            document.getElementById("explanation").innerHTML = explanation;
+        }
+    </script>
 </body>
-
-</html>
