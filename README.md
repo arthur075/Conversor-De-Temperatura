@@ -1,3 +1,3 @@
 Converor de temperatura
 
-E um conversor de temperatura que apresenta 5 unidades de medidas possibilitando ao usuário escolher de qual para qual ele ira trasnformar por exemplo graus celcius para kelvin.
+E um conversor de temperatura que apresenta 5 unidades de medidas possibilitando ao usuário escolher de qual para qual ele ira trasnformar por exemplo graus celcius para kelvin. possui uma interface visualmente bonita com fundo em degradê.
